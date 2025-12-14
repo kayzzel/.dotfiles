@@ -1,10 +1,10 @@
 #! /bin/bash
 
 root=(".zshrc" "startup.sh" ".tmux.conf")
-components=("nvim")
+components=("kitty" "fish" "nvim" "backgrounds" "macchina")
 
 for comp in "${components[@]}" ; do :
-	ln -sv "$PWD/$comp.config/$comp" "$HOME/.config/"
+	ln -sv "$PWD/$comp/.config/$comp" "$HOME/.config/"
 done
 
 for element in "${root[@]}" ; do :
