@@ -1,0 +1,40 @@
+
+separator=""
+separator_color="white"
+key_color="#c203fc"
+#prefer_small_ascii=false
+
+[palette]
+type="Dark"
+visible=false
+glyph="⬤ "
+
+[box]
+title=" kayzzel🐉 "
+border="rounded"
+visible=true
+
+[bar]
+glyph="■"
+hide_delimiters=true
+visible=true
+
+[randomize]
+key_color=false
+separator_color=false
+
+[custom_ascii]
+color="#c203fc"
+path="~/.config/macchina/themes/ascii-art.txt"
+
+[keys]
+host=""
+machine="󰷵"
+kernel=""
+distro="󱞩"
+cpu="󰍛"
+cpu_load=""
+memory=""
+disk_space="󰋊"
+terminal=""
+shell=""
