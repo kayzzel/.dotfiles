@@ -89,7 +89,7 @@ alias ls='ls --color'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
+macchina
 
 # -- ALIAS -- #
 
@@ -97,5 +97,6 @@ alias c="clear"
 alias x="exit"
 alias config_ghostty="vim ~/Library/Application\\ Support/com.mitchellh.ghostty"
 alias vim="nvim"
+alias norm="norminette"
 
 PATH="$HOME/.local/bin:$HOME/.config/emacs/bin:$PATH"
