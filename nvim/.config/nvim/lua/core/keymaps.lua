@@ -24,3 +24,6 @@ keymap("n", "<space>en", function()
 
 -- Toggleterm
 keymap("n", "<space>t", "<CMD>ToggleTerm<CR>", {desc = "Toggle floating terminal"})
+
+-- Flake8
+keymap("n", "<space>8", "<CMD>call flake8#Flake8()<CR>")

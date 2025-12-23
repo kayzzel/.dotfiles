@@ -1,4 +1,5 @@
 local opt = vim.opt
+local hl = vim.api.nvim_set_hl
 
 -- file
 opt.swapfile = false
@@ -15,9 +16,10 @@ opt.shiftwidth = 4
 opt.autoindent = true
 opt.backspace = "indent,eol,start"
 
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
-vim.api.nvim_set_hl(0, "Visual",     { bg = "#6c4791", blend = 10 })
-vim.api.nvim_set_hl(0, "Cursor", {
-  bg = "#7a7a7a",
-  fg = "#422d57",
-})
+vim.opt.termguicolors = true
+
+vim.opt.laststatus = 0
+hl(0, "StatusLine", { bg = "none" })
+hl(0, "StatusLineNC", { bg = "none" })
+hl(0, "CursorLine", { bg = "none" })
+hl(0, "Visual",     { bg = "#6c4791", blend = 10 })
