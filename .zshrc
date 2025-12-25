@@ -94,6 +94,7 @@ macchina
 # -- ALIAS -- #
 
 alias c="clear"
+alias cm="clear; macchina"
 alias x="exit"
 alias config_ghostty="vim ~/Library/Application\\ Support/com.mitchellh.ghostty"
 alias vim="nvim"
