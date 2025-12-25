@@ -23,3 +23,4 @@ hl(0, "StatusLine", { bg = "none" })
 hl(0, "StatusLineNC", { bg = "none" })
 hl(0, "CursorLine", { bg = "none" })
 hl(0, "Visual",     { bg = "#6c4791", blend = 10 })
+

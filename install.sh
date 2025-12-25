@@ -1,6 +1,6 @@
 #! /bin/bash
 
-root=(".zshrc" "startup.sh" ".tmux.conf")
+root=(".zshrc" "startup.sh" ".tmux.conf" ".w3m")
 components=("kitty" "nvim" "macchina")
 
 for comp in "${components[@]}" ; do :

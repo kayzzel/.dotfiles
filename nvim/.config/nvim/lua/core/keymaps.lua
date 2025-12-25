@@ -27,3 +27,16 @@ keymap("n", "<space>t", "<CMD>ToggleTerm<CR>", {desc = "Toggle floating terminal
 
 -- Flake8
 keymap("n", "<space>8", "<CMD>call flake8#Flake8()<CR>")
+
+-- W3m
+vim.keymap.set("n", "<leader>s", function()
+  vim.ui.input({ prompt = "Search: " }, function(input)
+    if not input or input == "" then return end
+	vim.cmd("enew")
+    local keys = vim.api.nvim_replace_termcodes(
+      ":W3m " .. input .. "<CR>",
+      true, false, true
+    )
+    vim.api.nvim_feedkeys(keys, "n", false)
+  end)
+end)
