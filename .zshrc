@@ -100,4 +100,4 @@ alias config_ghostty="vim ~/Library/Application\\ Support/com.mitchellh.ghostty"
 alias vim="nvim"
 alias norm="norminette"
 
-PATH="$HOME/.local/bin:$HOME/.config/emacs/bin:$PATH"
+PATH="$HOME/bin:$HOME/.local/bin:$HOME/.config/emacs/bin:$PATH"
