@@ -1,11 +1,12 @@
 #!/bin/bash
 
-PROJECT_DIR="$HOME/Documents/School42/common_core/python_modules/01"
+PROJECT_DIR="$HOME/Documents/common_core/milestone1/push_swap"
 
 # ----------------------------
 # Utilities session
 # ----------------------------
-tmux new-session -d -s utilities -n main "w3m https://lite.duckduckgo.com"
+#tmux new-session -d -s utilities -n main "w3m https://lite.duckduckgo.com"
+tmux new-session -d -s utilities -n main
 
 # ----------------------------
 # General session
@@ -29,6 +30,9 @@ tmux new-session -d -s work -n main -c "$PROJECT_DIR"
 
 # Editor window
 tmux new-window -t work -n editor -c "$PROJECT_DIR" "nvim"
+
+# Correction window
+tmux new-session -d -s work -n correction -c "$HOME/goinfre"
 
 # ----------------------------
 # Attach to general session
