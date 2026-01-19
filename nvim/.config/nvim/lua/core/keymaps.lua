@@ -40,3 +40,6 @@ vim.keymap.set("n", "<leader>s", function()
     vim.api.nvim_feedkeys(keys, "n", false)
   end)
 end)
+
+-- Markdown
+keymap("n", "<space>m", "<cmd>MarkdownPreviewToggle<cr>", opts)
