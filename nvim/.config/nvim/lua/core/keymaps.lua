@@ -5,6 +5,9 @@ local keymap = vim.keymap.set
 keymap("n", "<leader>w", "<CMD>w<CR>", {desc = "save file"})
 keymap("n", "<leader>q", "<CMD>q<CR>", {desc = "quit vim"})
 
+keymap("x", "<S-i>", ":move '<-2<CR>gv-gv", { desc = "Déplace le texte vers le haut" })
+keymap("x", "<S-k>", ":move '>+1<CR>gv-gv", { desc = "Déplace le texte vers le bas"})
+
 -- Oil
 keymap("n" , "<leader>md", "<CMD>Oil<CR>", {desc = "Start Oil"})
 

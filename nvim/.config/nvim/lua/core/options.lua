@@ -18,7 +18,7 @@ opt.backspace = "indent,eol,start"
 
 vim.opt.termguicolors = true
 
-vim.opt.laststatus = 0
+-- vim.opt.laststatus = 0
 hl(0, "StatusLine", { bg = "none" })
 hl(0, "StatusLineNC", { bg = "none" })
 hl(0, "CursorLine", { bg = "none" })
