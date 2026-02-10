@@ -39,37 +39,37 @@ components=("kitty" "nvim" "macchina")
 # ===== FUNCTIONS ================================== #
 
 force_symlink() {
-        read -p "Delete '$2$1' (y/N) " confirmation
-        confirmation="$(echo ${confirmation} | tr 'A-Z' 'a-z')"
-        if [[ $confirmation == "y" ]]
-        then
-                rm -rf "$2$1"
-                ln -sv "$PWD/$1" $2 2> /dev/null > /dev/null
-                if [ $? -ne 0 ]
-                then
-                        printf "    ${RED}[FAIL]    ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
-                else
-                        printf "    ${GREEN}[SUCCESS] ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
-                fi
-        fi
+	read -p "Delete '$2$1' (y/N) " confirmation
+	confirmation="$(echo ${confirmation} | tr 'A-Z' 'a-z')"
+	if [[ $confirmation == "y" ]]
+	then
+		rm -rf "$2$1"
+		ln -sv "$PWD/$1" $2 2> /dev/null > /dev/null
+		if [ $? -ne 0 ]
+		then
+			printf "    ${RED}[FAIL]    ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
+		else
+			printf "    ${GREEN}[SUCCESS] ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
+		fi
+	fi
 }
 
 
 create_symlink() {
-    	ln -sv "$PWD/$1" $2
-        if [ $? -ne 0 ]
-        then
-                printf "    ${RED}[FAIL]    ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
-                force_symlink $1 $2
-        else
-                printf "    ${GREEN}[SUCCESS] ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
-        fi
+	ln -sv "$PWD/$1" $2 2> /dev/null > /dev/null
+	if [ $? -ne 0 ]
+	then
+		printf "    ${RED}[FAIL]    ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
+		force_symlink $1 $2
+	else
+		printf "    ${GREEN}[SUCCESS] ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
+	fi
 }
 
 
 # ===== CODE ======================================= #
 
-printf "${BOLD}
+printf "${PURPLE}
 ==================================================
 \tKayzzel Setup - Symlink Dotfiles
 ==================================================
@@ -77,9 +77,9 @@ ${NC}
 "
 
 for comp in "${components[@]}" ; do :
-        create_symlink "$comp/" "$HOME/.config/"
+	create_symlink "$comp/" "$HOME/.config/"
 done
 
 for element in "${root[@]}" ; do :
-        create_symlink "$element" "$HOME/"
+	create_symlink "$element" "$HOME/"
 done
