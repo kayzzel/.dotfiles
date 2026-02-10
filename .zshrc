@@ -1,73 +1,114 @@
-# -- Things To Install For Zsh Conf -- #
+########################################
+# ZSH CONFIG
+########################################
 
-# brew install --cask font-jetbrains-mono-nerd-font
-# brew install fzf
-# brew install zoxide
 
-# -- Zsh Conf -- #
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+########################################
+# Powerlevel10k Instant Prompt (Fast Startup)
+########################################
+# Must stay at the top for best performance
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Set the directory we want to store zinit and plugins
+
+########################################
+# Zinit Plugin Manager Setup
+########################################
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-
 if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
-# Add zsh-vi-mode
-zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+########################################
+# Prompt Theme — Powerlevel10k
+########################################
+zinit ice depth=1
+zinit load romkatv/powerlevel10k
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Load p10k config if it exists
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-# Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
 
-# Add in snippets
+########################################
+# Vi Mode — zsh-vi-mode + Ctrl-R Fix
+########################################
+# Disable Ctrl-R inside vi mode (plugin-safe)
+function zvm_after_init() {
+  bindkey -M viins '^R' ''
+  bindkey -M vicmd '^R' ''
+}
+
+zinit ice depth=1
+zinit load jeffreytse/zsh-vi-mode
+
+# Enable vi keybindings
+bindkey -v
+export KEYTIMEOUT=1
+
+
+########################################
+# Core Plugins (Lazy Loaded for Speed)
+########################################
+
+# Syntax highlighting
+zinit ice wait lucid
+zinit load zsh-users/zsh-syntax-highlighting
+
+# Command autosuggestions
+zinit ice wait lucid
+zinit load zsh-users/zsh-autosuggestions
+
+# Better tab completion UI (fzf-tab)
+zinit ice wait lucid
+zinit load Aloxaf/fzf-tab
+
+# Completion system improvements
+zinit load zsh-users/zsh-completions
+
+
+########################################
+# Oh-My-Zsh Plugin Snippets (Lazy Loaded)
+########################################
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
+
+zinit ice wait lucid
 zinit snippet OMZP::aws
+
+zinit ice wait lucid
 zinit snippet OMZP::kubectl
+
+zinit ice wait lucid
 zinit snippet OMZP::kubectx
+
+zinit ice wait lucid
 zinit snippet OMZP::command-not-found
 
-# Load completions
-autoload -Uz compinit && compinit
+
+########################################
+# Completion System (Fast Mode)
+########################################
+autoload -Uz compinit
+compinit -C -d ~/.cache/zcompdump
 
 zinit cdreplay -q
 
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
 
-# Keybindings
-bindkey -e
-
-# History
+########################################
+# History Settings
+########################################
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
+
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -76,28 +117,48 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Completion styling
+
+########################################
+# Completion Styling & fzf-tab Preview
+########################################
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
+
+# Preview files when tab-completing paths
 zstyle ':fzf-tab:complete:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Aliases
-alias ls='ls --color'
 
-# Shell integrations
+########################################
+# Shell Integrations
+########################################
+
+# fzf keybindings & completion
 eval "$(fzf --zsh)"
+
+# Smarter cd with zoxide
 eval "$(zoxide init --cmd cd zsh)"
-macchina
 
-# -- ALIAS -- #
+# Show system info only in interactive shells
+[[ $- == *i* ]] && macchina
 
-alias c="clear"
-alias cm="clear; macchina"
-alias x="exit"
+
+########################################
+# Aliases
+########################################
+# Basic shortcuts
+alias ls='ls --color'           # colored ls output
+alias c="clear"                  # clear terminal
+alias x="exit"                   # exit shell
+
+# Workflow / tools
+alias cm="clear; macchina"       # clear + show system info
+alias vim="nvim"                 # map vim to neovim
+alias norm="norminette"          # custom tool
 alias config_ghostty="vim ~/Library/Application\\ Support/com.mitchellh.ghostty"
-alias vim="nvim"
-alias norm="norminette"
 
-PATH="$HOME/bin:$HOME/.local/bin:$HOME/.config/emacs/bin:$PATH"
+
+########################################
+# PATH
+########################################
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
