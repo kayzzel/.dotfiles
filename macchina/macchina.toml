@@ -27,7 +27,7 @@ disks = ["/home/gabach"]
 #memory_percentage = false
 
 # Themes need to be placed in "$XDG_CONFIG_DIR/macchina/themes" beforehand.
-theme = "abe"
+theme = "kayzzel"
 show = ["Host", "Machine", "Kernel", "Distribution",  "Processor","ProcessorLoad", "Memory", "DiskSpace", "Terminal", "Shell"]
 
 
