@@ -131,16 +131,16 @@ list_config() {
 
 
 is_in_array() {
-	echo "$1"
-	echo "$2"
-	for item in $2
+	local elem="$1"
+	shift
+	local arr=("$@")
+	for item in "${arr[@]}"
 	do
-		if [ "$1" == "$item" ]; then
-			echo "In the list"
-			exit 0
+		if [ "$elem" == "$item" ]; then
+			return 0
 		fi
 	done
-	exit 0
+	return 1
 }
 
 
@@ -211,17 +211,17 @@ done
 
 
 if [ "$CONFIG" ]; then
-	if ! is_in_array $CONFIG $root; then
+	if  is_in_array "$CONFIG" "${root[@]}"; then
 		if [ "$FORCE" ]; then
 			force_create_symlink "$CONFIG" "$HOME/"
 		else
 			create_symlink "$CONFIG" "$HOME/"
 		fi
-	elif ! is_in_array $CONFIG $config; then
+	elif is_in_array "$CONFIG" "${config[@]}"; then
 		if [ "$FORCE" ]; then
-			force_create_symlink "$CONFIG" "$HOME/.config"
+			force_create_symlink "$CONFIG" "$HOME/.config/"
 		else
-			create_symlink "$CONFIG" "$HOME/.config"
+			create_symlink "$CONFIG" "$HOME/.config/"
 		fi
 	else
 		echo "$CONFIG is not an availaible config"
@@ -229,7 +229,6 @@ if [ "$CONFIG" ]; then
 	fi
 else
 	if [ "$FORCE" ]; then
-		echo "test: $CONFIG"
 		force_install_all
 	else
 		install_all
