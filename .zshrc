@@ -51,18 +51,20 @@ zinit load jeffreytse/zsh-vi-mode
 bindkey -v
 export KEYTIMEOUT=1
 
+setxkbmap -option caps:escape
+
 
 ########################################
 # Core Plugins (Lazy Loaded for Speed)
 ########################################
 
-# Syntax highlighting
+# Autosuggestions FIRST
+zinit ice wait'0' lucid atload'_zsh_autosuggest_start'
+zinit load zsh-users/zsh-autosuggestions
+
+# Syntax highlighting LAST
 zinit ice wait lucid
 zinit load zsh-users/zsh-syntax-highlighting
-
-# Command autosuggestions
-zinit ice wait lucid
-zinit load zsh-users/zsh-autosuggestions
 
 # Better tab completion UI (fzf-tab)
 zinit ice wait lucid
@@ -155,6 +157,7 @@ alias x="exit"                   # exit shell
 alias cm="clear; macchina"       # clear + show system info
 alias vim="nvim"                 # map vim to neovim
 alias norm="norminette"          # custom tool
+alias ccf="cc -Wall -Werror -Wextra"
 alias config_ghostty="vim ~/Library/Application\\ Support/com.mitchellh.ghostty"
 
 
