@@ -50,14 +50,13 @@ force_create_symlink() {
 }
 
 ask_symlink() {
-	printf "\t      ${RED}Delete${NC} '$2$1' ${BOLD}(y/N)${NC} " 
+	printf "    ${BLUE}[INSTALL]${NC} '$2$1' ${BOLD}(y/N)${NC} " 
 	read confirmation
 	confirmation="$(echo ${confirmation} | tr 'A-Z' 'a-z')"
 	if [[ $confirmation == "y" ]]
 	then
 		rm -rf "$2$1"
 		ln -sv "$PWD/$1" $2 2> /dev/null > /dev/null
-		echo
 		if [ $? -ne 0 ]
 		then
 			printf "    ${RED}[FAIL]    ${YELLOW}CREATING${BOLD} > $2$1${NC}\n"
@@ -67,6 +66,7 @@ ask_symlink() {
 	else
 			printf "    ${CYAN}[SKIPPED] ${YELLOW}NOT CREATING${BOLD} > $2$1${NC}\n"
 	fi
+	echo
 }
 
 
@@ -110,11 +110,11 @@ ${NC}
 "
 
 	for conf in "${config[@]}" ; do :
-		create_symlink "$conf" "$HOME/.config/"
+		ask_symlink "$conf" "$HOME/.config/"
 	done
 
 	for conf in "${root[@]}" ; do :
-		create_symlink "$conf" "$HOME/"
+		ask_symlink "$conf" "$HOME/"
 	done
 }
 
@@ -160,9 +160,8 @@ OPTIONS:
 EOF
 }
 
+
 # ===== CODE ======================================= #
-
-
 
 CONFIG=""
 FORCE=""

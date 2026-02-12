@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT_DIR="$HOME/Documents/common_core/milestone1/push_swap"
+PROJECT_DIR="$HOME/Documents/common_core/milestone2/python_modules/module_7"
 
 # ----------------------------
 # Utilities session
