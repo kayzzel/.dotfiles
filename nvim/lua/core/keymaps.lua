@@ -14,6 +14,10 @@ keymap("n" , "<leader>md", "<CMD>Oil<CR>", {desc = "Start Oil"})
 -- 42Header
 keymap("n" , "<leader>h", "<CMD>Stdheader<CR>", {desc = "Insert 42 header"})
 
+-- Custom folding keybind
+vim.keymap.set("n", "<leader>:", "zc", { desc = "Close Fold" })
+vim.keymap.set("n", "<leader>;", "zo", { desc = "Open Fold" })
+
 -- Telescope
 --keymap("n", "<space>fr", require('telescope.builtin').lsp_references)
 keymap("n", "<space>fb", require('telescope.builtin').buffers)
@@ -25,6 +29,11 @@ keymap("n", "<space>en", function()
 	end
 )
 
+-- Search for the symbol under the cursor
+vim.keymap.set("n", "<leader>gd", function()
+  local word = vim.fn.expand("<cword>")
+  require("telescope.builtin").live_grep({ default_text = word })
+end, { desc = "Go to Definition (grep)" })
 
 -- Flake8
 keymap("n", "<space>8", "<CMD>call flake8#Flake8()<CR>")

@@ -24,6 +24,32 @@ hl(0, "StatusLineNC", { bg = "none" })
 hl(0, "CursorLine", { bg = "none" })
 hl(0, "Visual",     { bg = "#6c4791", blend = 10 })
 
+-- Use treesitter for folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99        -- open all folds by default
+vim.opt.foldlevelstart = 99
+
+vim.opt.fillchars = { fold = " " }
+
+function _G.custom_foldtext()
+  local start = vim.v.foldstart
+  local line = vim.fn.getline(start)
+
+  -- Get indentation
+  local indent = vim.fn.indent(start)
+  local indent_str = string.rep(" ", indent)
+
+  -- Remove leading whitespace from content
+  local content = line:gsub("^%s*", "")
+
+  local lines_count = vim.v.foldend - start + 1
+
+  return indent_str .. "󰁂 " .. content .. "  •  " .. lines_count .. " lines"
+end
+
+vim.opt.foldtext = "v:lua.custom_foldtext()"
+
 -- lint
 
 local ok, lint = pcall(require, "lint")
