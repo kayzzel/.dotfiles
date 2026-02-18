@@ -16,7 +16,7 @@ keymap("n" , "<leader>h", "<CMD>Stdheader<CR>", {desc = "Insert 42 header"})
 
 -- Custom folding keybind
 vim.keymap.set("n", "<leader>:", "zc", { desc = "Close Fold" })
-vim.keymap.set("n", "<leader>;", "zo", { desc = "Open Fold" })
+vim.keymap.set("n", "<leader>;", "za", { desc = "togle Fold" })
 
 -- Telescope
 --keymap("n", "<space>fr", require('telescope.builtin').lsp_references)
@@ -53,3 +53,6 @@ end)
 
 -- Markdown
 keymap("n", "<space>m", "<cmd>MarkdownPreviewToggle<cr>", opts)
+
+-- Coller sans écraser le registre
+keymap("v", "<leader>p", '"_dP')
