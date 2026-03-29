@@ -1,5 +1,6 @@
 return {
     "MoulatiMehdi/42norm.nvim",
+	enabled = true,
     config = function()
         local norm = require("42norm")
 

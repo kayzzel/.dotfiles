@@ -40,8 +40,8 @@ zinit load romkatv/powerlevel10k
 ########################################
 # Disable Ctrl-R inside vi mode (plugin-safe)
 function zvm_after_init() {
-  bindkey -M viins '^R' ''
-  bindkey -M vicmd '^R' ''
+  bindkey -M viins '^r' ''
+  bindkey -M vicmd '^r' ''
 }
 
 zinit ice depth=1
