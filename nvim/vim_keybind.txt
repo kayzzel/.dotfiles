@@ -1,0 +1,380 @@
+╔══════════════════════════════════════════════════════════════════╗
+║               NEOVIM NATIVE KEYBINDINGS CHEATSHEET               ║
+║                   from beginner to expert                        ║
+╚══════════════════════════════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  MODES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i          → Insert mode (before cursor)
+  a          → Insert mode (after cursor)
+  I          → Insert mode (beginning of line)
+  A          → Insert mode (end of line)
+  o          → Insert mode (new line below)
+  O          → Insert mode (new line above)
+  v          → Visual mode (character)
+  V          → Visual mode (line)
+  <C-v>      → Visual mode (block)
+  R          → Replace mode
+  :          → Command mode
+  <Esc>      → Back to Normal mode
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  BEGINNER — BASIC MOVEMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  h j k l    → Left / Down / Up / Right
+  w          → Next word (start)
+  b          → Previous word (start)
+  e          → Next word (end)
+  0          → Start of line
+  ^          → First non-blank character of line
+  $          → End of line
+  gg         → First line of file
+  G          → Last line of file
+  [n]G       → Go to line n  (e.g. 42G)
+  <C-d>      → Scroll half page down
+  <C-u>      → Scroll half page up
+  <C-f>      → Scroll full page down
+  <C-b>      → Scroll full page up
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  BEGINNER — BASIC EDITING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  x          → Delete character under cursor
+  X          → Delete character before cursor
+  dd         → Delete (cut) current line
+  yy         → Yank (copy) current line
+  p          → Paste after cursor
+  P          → Paste before cursor
+  u          → Undo
+  <C-r>      → Redo
+  .          → Repeat last change
+  r[char]    → Replace character under cursor with [char]
+  ~          → Toggle case of character under cursor
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  BEGINNER — SAVING & QUITTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  :w         → Save
+  :q         → Quit
+  :wq / :x   → Save and quit
+  :q!        → Quit without saving
+  :wa        → Save all buffers
+  :qa        → Quit all buffers
+  :qa!       → Quit all without saving
+  ZZ         → Save and quit (normal mode shortcut)
+  ZQ         → Quit without saving (normal mode shortcut)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — OPERATORS + MOTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Operators: d (delete), y (yank), c (change), > (indent), < (dedent)
+  Combined with motions or text objects.
+
+  dw         → Delete to next word
+  d$         → Delete to end of line
+  d0         → Delete to start of line
+  diw        → Delete inner word
+  daw        → Delete a word (includes surrounding space)
+  di(        → Delete inside parentheses
+  da(        → Delete including parentheses
+  di"        → Delete inside quotes
+  di{        → Delete inside braces
+  dit        → Delete inside HTML/XML tag
+
+  ciw        → Change inner word
+  ci(        → Change inside parentheses
+  ci"        → Change inside quotes
+  cw         → Change to next word
+  c$  / C    → Change to end of line
+  cc         → Change entire line
+
+  yiw        → Yank inner word
+  yi(        → Yank inside parentheses
+
+  >>         → Indent line
+  <<         → Dedent line
+  =G         → Auto-indent from cursor to end of file
+  gg=G       → Auto-indent entire file
+
+  [n][op]    → Repeat operator n times (e.g. 3dd = delete 3 lines)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — SEARCH & REPLACE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  /pattern   → Search forward
+  ?pattern   → Search backward
+  n          → Next match
+  N          → Previous match
+  *          → Search word under cursor (forward)
+  #          → Search word under cursor (backward)
+  %          → Jump to matching bracket / parenthesis
+
+  :s/old/new/       → Replace first match on current line
+  :s/old/new/g      → Replace all matches on current line
+  :%s/old/new/g     → Replace all matches in file
+  :%s/old/new/gc    → Replace all with confirmation
+  :%s/old/new/gi    → Replace all, case insensitive
+
+  :noh       → Clear search highlight
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — VISUAL MODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  v          → Start character selection
+  V          → Start line selection
+  <C-v>      → Start block selection
+  o          → Move to other end of selection
+  gv         → Reselect last visual selection
+
+  (in visual) d   → Delete selection
+  (in visual) y   → Yank selection
+  (in visual) c   → Change selection
+  (in visual) >   → Indent selection
+  (in visual) <   → Dedent selection
+  (in visual) ~   → Toggle case
+  (in visual) u   → Lowercase
+  (in visual) U   → Uppercase
+  (in visual) :   → Command on selection (e.g. :sort)
+
+  <C-v> then I     → Insert at start of each selected line
+  <C-v> then A     → Append at end of each selected line
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — WINDOWS & SPLITS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  :sp [file]    → Horizontal split
+  :vsp [file]   → Vertical split
+  <C-w>s        → Horizontal split (current file)
+  <C-w>v        → Vertical split (current file)
+  <C-w>h/j/k/l  → Move between splits
+  <C-w>H/J/K/L  → Move split to far left/bottom/top/right
+  <C-w>=        → Equalize split sizes
+  <C-w>+/-      → Increase / decrease height
+  <C-w>>/<      → Increase / decrease width
+  <C-w>q        → Close current split
+  <C-w>o        → Close all other splits
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — TABS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  :tabnew [file]  → Open file in new tab
+  :tabn / gt      → Next tab
+  :tabp / gT      → Previous tab
+  [n]gt           → Go to tab n
+  :tabclose       → Close current tab
+  :tabo           → Close all other tabs
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — BUFFERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  :ls / :buffers  → List open buffers
+  :b [n/name]     → Switch to buffer n or name
+  :bn             → Next buffer
+  :bp             → Previous buffer
+  :bd             → Delete (close) buffer
+  <C-^>           → Switch to alternate (last) buffer
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — MARKS & JUMPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  m[a-z]     → Set local mark
+  m[A-Z]     → Set global mark (works across files)
+  '[a-z]     → Jump to mark line
+  `[a-z]     → Jump to mark exact position
+  ''         → Jump back to last jump position (line)
+  ``         → Jump back to last jump position (exact)
+  <C-o>      → Jump backward in jump list
+  <C-i>      → Jump forward in jump list
+  :marks     → List all marks
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — FOLDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  za         → Toggle fold under cursor
+  zo         → Open fold
+  zc         → Close fold
+  zR         → Open all folds
+  zM         → Close all folds
+  zf[motion] → Create fold (e.g. zf5j = fold next 5 lines)
+  zd         → Delete fold
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  INTERMEDIATE — COMMAND LINE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  :e [file]       → Open file
+  :e!             → Reload current file (discard changes)
+  :r [file]       → Read file and insert below cursor
+  :r ![cmd]       → Insert output of shell command below cursor
+  :[range]d       → Delete range of lines (e.g. :5,10d)
+  :[range]y       → Yank range of lines
+  :[range]m[line] → Move range to after line (e.g. :3,5m0)
+  :[range]co[line]→ Copy range to after line
+  :sort           → Sort selected lines
+  :sort!          → Sort in reverse
+  :sort u         → Sort and remove duplicates
+  :%!fmt          → Format entire file with external command
+  :!cmd           → Run shell command
+  !!              → Run shell command and replace current line with output
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERT — REGISTERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  "[a-z]y    → Yank into register a-z  (e.g. "ayy)
+  "[a-z]p    → Paste from register a-z (e.g. "ap)
+  "[A-Z]y    → Append yank to register (e.g. "Ayy)
+  "+y        → Yank to system clipboard
+  "+p        → Paste from system clipboard
+  "0p        → Paste last yank (not affected by delete)
+  "_d        → Delete to black hole register (no clipboard pollution)
+  ":p        → Paste last command
+  "/p        → Paste last search pattern
+  :reg       → List all registers and their content
+  <C-r>[reg] → Paste register in insert/command mode (e.g. <C-r>a)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERT — MACROS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  q[a-z]     → Start recording macro into register
+  q          → Stop recording
+  @[a-z]     → Play macro
+  @@         → Replay last macro
+  [n]@[a-z]  → Play macro n times (e.g. 10@a)
+  :norm @a   → Apply macro to each line in a visual selection
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERT — ADVANCED MOVEMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  f[char]    → Jump forward to char on line
+  F[char]    → Jump backward to char on line
+  t[char]    → Jump forward until char (before it)
+  T[char]    → Jump backward until char
+  ;          → Repeat last f/F/t/T forward
+  ,          → Repeat last f/F/t/T backward
+
+  H          → Move cursor to top of screen
+  M          → Move cursor to middle of screen
+  L          → Move cursor to bottom of screen
+
+  zt         → Scroll screen so cursor is at top
+  zz         → Scroll screen so cursor is at middle
+  zb         → Scroll screen so cursor is at bottom
+
+  (          → Jump to start of previous sentence
+  )          → Jump to start of next sentence
+  {          → Jump to previous empty line / paragraph
+  }          → Jump to next empty line / paragraph
+
+  gd         → Go to local definition
+  gD         → Go to global definition
+  gf         → Go to file under cursor
+  K          → Show man page / docs for word under cursor
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERT — QUICKFIX & LOCATION LIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  :copen     → Open quickfix list
+  :cclose    → Close quickfix list
+  :cn        → Next quickfix entry
+  :cp        → Previous quickfix entry
+  :cc [n]    → Jump to entry n
+  :lopen     → Open location list
+  :lclose    → Close location list
+  :ln        → Next location entry
+  :lp        → Previous location entry
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERT — GLOBAL COMMAND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  :g/pattern/cmd      → Run cmd on every line matching pattern
+  :g/pattern/d        → Delete all lines matching pattern
+  :g!/pattern/d       → Delete all lines NOT matching pattern
+  :g/pattern/y A      → Append all matching lines to register a
+  :g/^$/d             → Delete all empty lines
+  :g/pattern/norm @a  → Apply macro to all matching lines
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERT — INSERT MODE TRICKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  <C-w>      → Delete word before cursor
+  <C-u>      → Delete to start of line
+  <C-h>      → Delete character before cursor (backspace)
+  <C-t>      → Indent current line
+  <C-d>      → Dedent current line
+  <C-o>      → Execute one normal mode command then return to insert
+  <C-r>[reg] → Paste from register without leaving insert mode
+  <C-n>      → Autocomplete next (native)
+  <C-p>      → Autocomplete previous (native)
+  <C-x><C-f> → Autocomplete file paths
+  <C-x><C-l> → Autocomplete whole lines
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  EXPERT — MISC POWER FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  <C-a>      → Increment number under cursor
+  <C-x>      → Decrement number under cursor
+  g<C-a>     → Increment sequence (in visual block)
+  ga         → Show ASCII / Unicode value of character under cursor
+  gq[motion] → Format/wrap text (e.g. gqq = wrap current line)
+  J          → Join current line with line below
+  gJ         → Join without adding space
+  xp         → Swap current char with next (transpose)
+  ddp        → Swap current line with next
+  :set spell → Enable spell checking
+  ]s         → Next spelling error
+  [s         → Previous spelling error
+  z=         → Suggest spelling corrections
+  zg         → Add word to dictionary
+  :ab [short] [long]  → Set abbreviation (e.g. :ab teh the)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  - Almost every operator accepts a count: 3dw, 5j, 2yy, 10>>
+  - Combine registers + macros for powerful batch editing
+  - Use :norm[al] to apply normal mode commands to a range of lines
+  - . (dot) is your best friend — design edits to be repeatable
+  - <C-v> block mode + I/A lets you edit multiple lines at once
+  - Think in text objects: iw i( i" i{ it — not character by character
