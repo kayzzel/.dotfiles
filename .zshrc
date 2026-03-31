@@ -51,8 +51,6 @@ zinit load jeffreytse/zsh-vi-mode
 bindkey -v
 export KEYTIMEOUT=1
 
-setxkbmap -option caps:escape
-
 
 ########################################
 # Core Plugins (Lazy Loaded for Speed)
