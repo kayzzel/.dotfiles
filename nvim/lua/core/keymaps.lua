@@ -37,9 +37,6 @@ vim.keymap.set("n", "<leader>gd", function()
   require("telescope.builtin").live_grep({ default_text = word })
 end, { desc = "Go to Definition (grep)" })
 
--- Flake8
-keymap("n", "<space>8", "<CMD>call flake8#Flake8()<CR>")
-
 -- W3m
 vim.keymap.set("n", "<leader>s", function()
   vim.ui.input({ prompt = "Search: " }, function(input)
