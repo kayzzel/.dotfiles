@@ -66,7 +66,10 @@ if ok then
       local mypy = lint.linters.mypy
       mypy.args = vim.list_extend(
           mypy.args or {},
-          { "--cache-dir=/dev/null" }
+          {
+		  "--cache-dir=/dev/null",
+		  "--check-untyped-defs"
+	  }
       )
     end
 
