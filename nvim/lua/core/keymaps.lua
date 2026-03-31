@@ -10,6 +10,8 @@ keymap("n", "<C-j>", "V:move '>+1<CR>gv-gv<ESCAPE>", { desc = "Déplace le texte
 keymap("x", "<C-k>", ":move '<-2<CR>gv-gv", { desc = "Déplace le texte vers le haut" })
 keymap("x", "<C-j>", ":move '>+1<CR>gv-gv", { desc = "Déplace le texte vers le bas"})
 
+
+keymap("n" , "<leader>ut", "<CMD>UndotreeToggle<CR>", {desc = "toggle undotree"})
 -- Oil
 keymap("n" , "<leader>md", "<CMD>Oil<CR>", {desc = "Start Oil"})
 
