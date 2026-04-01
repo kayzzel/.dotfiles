@@ -5,7 +5,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  BEGINNER — FILES
+  FILES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :e [file]          → Open / edit a file
@@ -28,7 +28,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  BEGINNER — BUFFERS
+  BUFFERS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :ls                → List all open buffers
@@ -45,7 +45,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  BEGINNER — WINDOWS & SPLITS
+  WINDOWS & SPLITS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :sp [file]         → Horizontal split (open file or current)
@@ -62,7 +62,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  BEGINNER — TABS
+  TABS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :tabnew [file]     → Open file in new tab
@@ -76,7 +76,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  BEGINNER — SEARCH & SUBSTITUTE
+  SEARCH & SUBSTITUTE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :s/old/new/        → Replace first match on current line
@@ -99,7 +99,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — RANGES
+  RANGES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   Ranges can be prepended to most commands:
@@ -125,7 +125,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — EDITING COMMANDS
+  EDITING COMMANDS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :d [reg]           → Delete current line (into register)
@@ -150,7 +150,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — OPTIONS (set)
+  OPTIONS (set)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :set               → Show all modified options
@@ -181,7 +181,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — MARKS
+  MARKS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :marks             → List all marks
@@ -191,7 +191,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — REGISTERS
+  REGISTERS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :reg               → Show all register contents
@@ -199,7 +199,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — SHELL & EXTERNAL
+  SHELL & EXTERNAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :! [cmd]           → Run shell command (output shown, file unchanged)
@@ -216,7 +216,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — QUICKFIX & LOCATION LIST
+  QUICKFIX & LOCATION LIST
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :copen             → Open quickfix list
@@ -237,12 +237,12 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — GREP & SEARCH IN FILES
+  GREP & SEARCH IN FILES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :grep [pattern] [files]   → Search using grepprg (default: grep)
   :grep -r foo src/         → Recursive grep in src/
-  :vimgrep /pattern/ %      → Search in current file
+  :vimgrep /pattern/ %      → Search in current file (:vim == :vimgrep)
   :vimgrep /pattern/ **/*.c → Search in all .c files recursively
   :copen                    → See results in quickfix list
 
@@ -250,7 +250,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  INTERMEDIATE — SPELL CHECKING
+  SPELL CHECKING
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :set spell              → Enable spell checking
@@ -264,7 +264,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — GLOBAL COMMAND
+  GLOBAL COMMAND
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :g/pattern/[cmd]   → Run cmd on every line matching pattern
@@ -280,12 +280,12 @@
     :g/^/m 0               → Reverse order of all lines
     :g/pattern/norm @q     → Apply macro q to all matching lines
     :g/pattern/t $         → Copy all matching lines to end of file
-    :v/^\s*$/d             → Delete all blank/whitespace-only lines
+    :g/^\s*$/d             → Delete all blank/whitespace-only lines
     :g/pattern/norm dd     → Delete lines matching pattern (via normal)
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — NORMAL COMMAND
+  NORMAL COMMAND
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :norm [keys]       → Execute normal mode keys on current line
@@ -300,7 +300,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — KEYMAPS
+  KEYMAPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :map               → List all mappings
@@ -316,7 +316,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — ABBREVIATIONS
+  ABBREVIATIONS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :ab [short] [long] → Abbreviation in insert + command mode
@@ -330,9 +330,8 @@
     :iab @@ user@example.com
     :iab #b #!/bin/bash
 
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — AUTOCOMMANDS
+  AUTOCOMMANDS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :autocmd [event] [pattern] [cmd]  → Define autocommand
@@ -358,7 +357,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — LUA (NEOVIM SPECIFIC)
+  LUA (NEOVIM SPECIFIC)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :lua [code]           → Execute Lua code inline
@@ -376,7 +375,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — DIAGNOSTICS & INFO
+  DIAGNOSTICS & INFO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :checkhealth           → Run full health check (LSP, providers...)
@@ -394,7 +393,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — FOLDS
+  FOLDS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :set foldmethod=indent   → Fold by indentation
@@ -408,7 +407,7 @@
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  EXPERT — SESSIONS & VIEWS
+  SESSIONS & VIEWS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   :mksession [file]    → Save current session (buffers, splits, etc.)
