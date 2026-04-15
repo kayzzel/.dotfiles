@@ -1,5 +1,5 @@
 ╔══════════════════════════════════════════════════════════════════╗
-║               NEOVIM NATIVE KEYBINDINGS CHEATSHEET              ║
+║               NEOVIM NATIVE KEYBINDINGS CHEATSHEET               ║
 ║                   from beginner to expert                        ║
 ╚══════════════════════════════════════════════════════════════════╝
 
@@ -204,26 +204,26 @@
   WINDOWS & SPLITS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  :sp [file]    → Horizontal split
-  :vsp [file]   → Vertical split
-  <C-w>s        → Horizontal split (current file)
-  <C-w>v        → Vertical split (current file)
-  <C-w>n        → New empty horizontal split
-  <C-w>h/j/k/l  → Move between splits
-  <C-w>H/J/K/L  → Move split to far left/bottom/top/right
-  <C-w>w        → Cycle through splits
-  <C-w>p        → Jump to previous split
-  <C-w>r        → Rotate splits clockwise
-  <C-w>R        → Rotate splits counter-clockwise
-  <C-w>x        → Swap current split with next
-  <C-w>=        → Equalize split sizes
-  <C-w>+/-      → Increase / decrease height
-  <C-w>>/<      → Increase / decrease width
-  <C-w>|        → Maximize width
-  <C-w>_        → Maximize height
-  <C-w>q        → Close current split
-  <C-w>o        → Close all other splits
-  <C-w>T        → Move current split to new tab
+  :sp [file]    → horizontal split
+  :vsp [file]   → vertical split
+  <c-w>s        → horizontal split (current file)
+  <c-w>v        → vertical split (current file)
+  <c-w>n        → new empty horizontal split
+  <c-w>h/j/k/l  → move between splits
+  <c-w>h/j/k/l  → move split to far left/bottom/top/right
+  <c-w>w        → cycle through splits
+  <c-w>p        → jump to previous split
+  <c-w>r        → rotate splits clockwise
+  <c-w>r        → rotate splits counter-clockwise
+  <c-w>x        → swap current split with next
+  <c-w>=        → equalize split sizes
+  <c-w>+/-      → increase / decrease height
+  <c-w>>/<      → increase / decrease width
+  <c-w>|        → maximize width
+  <c-w>_        → maximize height
+  <c-w>q        → close current split
+  <c-w>o        → close all other splits
+  <c-w>t        → move current split to new tab
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

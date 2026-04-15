@@ -1,11 +1,11 @@
 #!/bin/bash
 
-PROJECT_DIR="$HOME/Documents/common_core/milestone2/python_modules/module_7"
+PROJECT_DIR="$HOME/Documents/common_core/milestone3/fly-in"
 
 # ----------------------------
 # Utilities session
 # ----------------------------
-#tmux new-session -d -s utilities -n main "w3m https://lite.duckduckgo.com"
+tmux new-session -d -s utilities -n main "w3m https://lite.duckduckgo.com"
 tmux new-session -d -s utilities -n main
 
 # ----------------------------

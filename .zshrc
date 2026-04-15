@@ -38,18 +38,20 @@ zinit load romkatv/powerlevel10k
 ########################################
 # Vi Mode — zsh-vi-mode + Ctrl-R Fix
 ########################################
-# Disable Ctrl-R inside vi mode (plugin-safe)
-function zvm_after_init() {
-  bindkey -M viins '^r' ''
-  bindkey -M vicmd '^r' ''
-}
-
 zinit ice depth=1
 zinit load jeffreytse/zsh-vi-mode
 
 # Enable vi keybindings
 bindkey -v
 export KEYTIMEOUT=1
+
+# Disable Ctrl-R inside vi mode (plugin-safe)
+function zvm_after_init() {
+  bindkey -M viins '^r' ''
+  bindkey -M vicmd '^r' ''
+}
+
+setxkbmap -option caps:escape
 
 
 ########################################
