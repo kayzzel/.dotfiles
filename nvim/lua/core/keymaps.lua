@@ -29,6 +29,7 @@ keymap("n", "<leader>;", "za", { desc = "togle Fold" })
 --keymap("n", "<space>fr", require('telescope.builtin').lsp_references)
 keymap("n", "<space>fb", require('telescope.builtin').buffers)
 keymap("n", "<space><space>", require('telescope.builtin').find_files)
+keymap("n", "<space>li", require("telescope.builtin").live_grep)
 keymap("n", "<space>en", function()
 	require('telescope.builtin').find_files {
 		cwd = vim.fn.stdpath("config")

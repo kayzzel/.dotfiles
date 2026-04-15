@@ -1,9 +1,9 @@
 return {
 	"folke/noice.nvim",
+	enabled = true,
 	event = "VeryLazy",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
 	},
 	opts = {
 		cmdline = {
@@ -45,7 +45,7 @@ return {
 
 			-- Popup border (optional styling)
 			vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", {
-				fg = "#89b4fa",
+				fg = "#8024ca",
 				bg = "NONE",
 			})
 

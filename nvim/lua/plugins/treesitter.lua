@@ -1,16 +1,12 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+	enabled = true,
     version = false, -- last release is way too old and doesn't work on Windows
+	branch = 'main',
     build = ":TSUpdate",
     lazy = false, -- load treesitter early when opening a file from the cmdline
     init = function(plugin)
-        -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
-        -- This is needed because a bunch of plugins no longer require("nvim-treesitter"), which
-        -- no longer trigger the nvim-treesitter module to be loaded in time.
-        -- Luckily, the only things that those plugins need are the custom queries, which we make available
-        -- during startup.
         require("lazy.core.loader").add_to_rtp(plugin)
-        require("nvim-treesitter.query_predicates")
     end,
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     keys = {
@@ -36,7 +32,7 @@ return {
             "lua",
             "luadoc",
             "luap",
-			"Makefile",
+			"make",
             "markdown",
             "markdown_inline",
             "printf",
