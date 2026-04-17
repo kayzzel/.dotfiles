@@ -14,7 +14,23 @@ keymap("n", "<C-u>", "<C-u>zz", { desc = "Go up half a page and center the scree
 keymap("n", "<C-d>", "<C-d>zz", { desc = "Go down half a page and center the screen"})
 
 
+-- Lsp
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local opts = { buffer = ev.buf }
+    vim.keymap.set("n", "gd",  vim.lsp.buf.definition,     opts)
+    vim.keymap.set("n", "K",   vim.lsp.buf.hover,          opts)
+    vim.keymap.set("n", "gi",  vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "grn", vim.lsp.buf.rename,         opts)
+    vim.keymap.set("n", "gra", vim.lsp.buf.code_action,    opts)
+    vim.keymap.set("n", "grr", vim.lsp.buf.references,     opts)
+  end,
+})
+
+
+-- Undotree
 keymap("n" , "<leader>ut", "<CMD>UndotreeToggle<CR>", {desc = "toggle undotree"})
+
 -- Oil
 keymap("n" , "<leader>md", "<CMD>Oil<CR>", {desc = "Start Oil"})
 
