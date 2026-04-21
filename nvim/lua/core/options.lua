@@ -68,7 +68,7 @@ if ok then
           mypy.args or {},
           {
 		  "--cache-dir=/dev/null",
-		  "--check-untyped-defs"
+		  "--strict"
 	  }
       )
     end
