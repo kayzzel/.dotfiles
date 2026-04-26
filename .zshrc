@@ -46,7 +46,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # Disable Ctrl-R inside vi mode (plugin-safe)
-function zvm_after_init() {
+function zvm_after_lazy_keybindings() {
   bindkey -M viins '^r' ''
   bindkey -M vicmd '^r' ''
 }
