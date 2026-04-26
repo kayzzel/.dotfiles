@@ -16,8 +16,20 @@ opt.shiftwidth = 4
 opt.autoindent = true
 opt.backspace = "indent,eol,start"
 
+-- keep cursor centered vertically while scrolling
+opt.scrolloff = 15
+
+-- splits open in a more natural direction
+vim.opt.splitright = true -- vertical splits open on the right
+vim.opt.splitbelow = true -- horizontal splits open below
 vim.opt.termguicolors = true
 
+-- highlight yanked text for 150ms
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
+    end,
+})
 -- vim.opt.laststatus = 0
 hl(0, "StatusLine", { bg = "none" })
 hl(0, "StatusLineNC", { bg = "none" })
