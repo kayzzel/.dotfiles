@@ -13,6 +13,14 @@ keymap("x", "<C-j>", ":move '>+1<CR>gv-gv", { desc = "Déplace le texte vers le 
 keymap("n", "<C-u>", "<C-u>zz", { desc = "Go up half a page and center the screen"})
 keymap("n", "<C-d>", "<C-d>zz", { desc = "Go down half a page and center the screen"})
 
+-- disable a plugin
+vim.keymap.set("n", "<leader>pd", function()
+    vim.ui.input({ prompt = "Disable plugin: " }, function(name)
+        if not name or name == "" then return end
+        require("lazy").disable(name)
+        vim.notify("Plugin disabled: " .. name, vim.log.levels.INFO)
+    end)
+end, { desc = "Disable plugin temporarily" })
 
 -- Lsp
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -73,7 +81,7 @@ vim.keymap.set("n", "<leader>s", function()
 end)
 
 -- Markdown
-keymap("n", "<space>m", "<cmd>MarkdownPreviewToggle<cr>", opts)
+keymap("n", "<space>m", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Toggle markdown preview" })
 
 -- Coller sans écraser le registre
 keymap("v", "<leader>p", '"_dP')
