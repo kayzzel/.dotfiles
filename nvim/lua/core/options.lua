@@ -80,6 +80,7 @@ if ok then
           mypy.args or {},
           {
 		  "--cache-dir=/dev/null",
+		  "--python-executable", get_python_path(),
 		  "--strict"
 	  }
       )

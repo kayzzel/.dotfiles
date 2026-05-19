@@ -45,6 +45,9 @@ return {
                 cmd          = { mason_bin .. "pyright-langserver", "--stdio" },
                 filetypes    = { "python" },
                 capabilities = capabilities,
+				on_init = function(client)
+					client.config.settings.python.pythonPath = get_python_path()
+				end,
                 settings     = {
                     python = {
                         analysis = {
