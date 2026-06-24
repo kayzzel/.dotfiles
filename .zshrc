@@ -118,6 +118,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+setopt numeric_glob_sort
 
 
 ########################################
@@ -164,4 +165,4 @@ alias config_ghostty="vim ~/Library/Application\\ Support/com.mitchellh.ghostty"
 ########################################
 # PATH
 ########################################
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
