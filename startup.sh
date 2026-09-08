@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT_DIR="$HOME/Documents/common_core/milestone3/fly-in"
+PROJECT_DIR="$HOME/Documents/common_core/milestone4/RAG_against_the_machine/" 
 
 # ----------------------------
 # Utilities session
@@ -29,7 +29,7 @@ tmux split-window -v -p 30 -t general:monitoring.2 "pipes.sh"
 tmux new-session -d -s work -n main -c "$PROJECT_DIR"
 
 # Editor window
-tmux new-window -t work -n editor -c "$PROJECT_DIR" "nvim"
+tmux new-window -t work -n editor -c "$PROJECT_DIR" "opencode"
 
 # Correction window
 tmux new-session -d -s work -n correction -c "$HOME/goinfre"
