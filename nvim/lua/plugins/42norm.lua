@@ -1,6 +1,12 @@
 return {
     "MoulatiMehdi/42norm.nvim",
-	enabled = true,
+	enabled = false,
+
+	opts = {
+		user = "gabach",
+		mail = "gabach@student.42lyon.fr",
+	},
+
     config = function()
         local norm = require("42norm")
 
@@ -25,9 +31,6 @@ return {
         end, {})
         vim.api.nvim_create_user_command("Format", function()
             norm.format()
-        end, {})
-        vim.api.nvim_create_user_command("Stdheader", function()
-            norm.stdheader()
         end, {})
     end,
 }
