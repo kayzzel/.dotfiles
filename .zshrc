@@ -145,6 +145,10 @@ eval "$(zoxide init --cmd cd zsh)"
 # Show system info only in interactive shells
 [[ $- == *i* ]] && macchina
 
+# --- NVM ---
+if [ -f /usr/share/nvm/init-nvm.sh ]; then
+    source /usr/share/nvm/init-nvm.sh
+fi
 
 ########################################
 # Aliases
@@ -156,6 +160,7 @@ alias x="exit"                   # exit shell
 
 # Workflow / tools
 alias cm="clear; macchina"       # clear + show system info
+alias ll="ls -la"
 alias vim="nvim"                 # map vim to neovim
 alias norm="norminette"          # custom tool
 alias ccf="cc -Wall -Werror -Wextra"
@@ -165,4 +170,9 @@ alias config_ghostty="vim ~/Library/Application\\ Support/com.mitchellh.ghostty"
 ########################################
 # PATH
 ########################################
-PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+BIN_PATH="$HOME/.bin"
+LOCAL_BIN_PATH="$HOME/.local/bin"
+CARGO_PATH="$HOME/.cargo/bin"
+OPENCODE="$HOME/.opencode/bin"
+PATH="$BIN_PATH:$LOCAL_BIN_PATH:$CARGO_PATH:$OPENCODE:$PATH"
+
