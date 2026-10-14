@@ -11,6 +11,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 ########################################
 # Zinit Plugin Manager Setup
@@ -51,7 +52,7 @@ function zvm_after_lazy_keybindings() {
   bindkey -M vicmd '^r' ''
 }
 
-setxkbmap -option caps:escape
+# setxkbmap -option caps:escape
 
 
 ########################################
