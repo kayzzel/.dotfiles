@@ -143,12 +143,19 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # Show system info only in interactive shells
-[[ $- == *i* ]] && macchina
+[[ $- == *i* ]] && fastfetch
 
 # --- NVM ---
 if [ -f /usr/share/nvm/init-nvm.sh ]; then
     source /usr/share/nvm/init-nvm.sh
 fi
+
+########################################
+# Editor
+########################################
+export VISUAL="nvim"
+export EDITOR="nvim"
+
 
 ########################################
 # Aliases
@@ -159,7 +166,7 @@ alias c="clear"                  # clear terminal
 alias x="exit"                   # exit shell
 
 # Workflow / tools
-alias cm="clear; macchina"       # clear + show system info
+alias cm="clear; fastfetch"       # clear + show system info
 alias ll="ls -la"
 alias vim="nvim"                 # map vim to neovim
 alias norm="norminette"          # custom tool

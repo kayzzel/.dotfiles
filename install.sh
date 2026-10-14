@@ -31,8 +31,9 @@ NC='\033[0m'
 
 # ===== CONFIGS ==================================== #
 
-root=(".zshrc" "startup.sh" ".tmux.conf" ".w3m")
-config=("kitty" "nvim" "macchina")
+root=(".zshrc" ".tmux.conf" ".w3m")
+bin=("startup")
+config=("kitty" "nvim" "fastfetch")
 
 
 # ===== FUNCTIONS ================================== #
@@ -98,6 +99,10 @@ ${NC}
 	for conf in "${root[@]}" ; do :
 		force_create_symlink "$conf" "$HOME/"
 	done
+
+	for bin in "${bin[@]}" ; do :
+		force_create_symlink "$bin" "$HOME/.bin/"
+	done
 }
 
 
@@ -116,6 +121,10 @@ ${NC}
 	for conf in "${root[@]}" ; do :
 		ask_symlink "$conf" "$HOME/"
 	done
+
+	for bin in "${bin[@]}" ; do :
+		ask_symlink "$bin" "$HOME/.bin/"
+	done
 }
 
 list_config() {
@@ -124,8 +133,12 @@ list_config() {
 		printf "   - $conf\n"
 	done
 
-	for conf in "${root[@]}" ; do :
-		printf "   - $conf\n"
+	for root in "${root[@]}" ; do :
+		printf "   - $root\n"
+	done
+
+	for bin in "${bin[@]}" ; do :
+		printf "   - $bin\n"
 	done
 }
 
@@ -221,6 +234,12 @@ if [ "$CONFIG" ]; then
 			force_create_symlink "$CONFIG" "$HOME/.config/"
 		else
 			create_symlink "$CONFIG" "$HOME/.config/"
+		fi
+	elif is_in_array "$CONFIG" "${bin[@]}"; then
+		if [ "$FORCE" ]; then
+			force_create_symlink "$CONFIG" "$HOME/.bin/"
+		else
+			create_symlink "$CONFIG" "$HOME/.bin/"
 		fi
 	else
 		echo "$CONFIG is not an availaible config"
