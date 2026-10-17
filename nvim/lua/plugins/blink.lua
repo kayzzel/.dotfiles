@@ -12,8 +12,10 @@ return {
             ["<Tab>"] = { "accept", "fallback" }, -- Tab confirms
             ["<CR>"]  = { "fallback" },           -- Enter always = newline, never confirms
             -- <C-space>     → open / refresh completion menu
-            -- <C-n> / <C-p> → next / previous item
+            -- <C-x> / <C-p> → next / previous item
             -- <C-e>         → close menu
+            ["<C-x>"] = { "select_next", "fallback" },
+            ["<C-p>"] = { "select_prev", "fallback" },
         },
 
         -- ── Appearance ───────────────────────────────────────────────────────
