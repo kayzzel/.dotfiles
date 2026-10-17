@@ -4,6 +4,8 @@ local keymap = vim.keymap.set
 -- Normal
 keymap("n", "<leader>w", "<CMD>w<CR>", {desc = "save file"})
 keymap("n", "<leader>q", "<CMD>q<CR>", {desc = "quit vim"})
+keymap("n", "<leader>Q", "<CMD>q!<CR>", {desc = "force quit vim"})
+keymap("n", "<leader>x", "<CMD>x<CR>", {desc = "save quit vim"})
 
 keymap("n", "<C-k>", "V:move '<-2<CR>gv-gv<ESCAPE>", { desc = "Déplace le texte vers le haut" })
 keymap("n", "<C-j>", "V:move '>+1<CR>gv-gv<ESCAPE>", { desc = "Déplace le texte vers le bas"})
